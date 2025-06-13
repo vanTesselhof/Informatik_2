@@ -1,0 +1,223 @@
+Welcome to Cinema
+----------------------------------------
+1. Create Account
+2. Log in to existing Account
+3. Exit
+----------------------------------------
+Enter your choice: Enter your user-name: Enter your password: Hello admin :D
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: Enter movie-title: Enter movie-duration: Enter movie-datetime: Enter available seats: Paddington in Peru added!
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: Bye bye!
+Welcome to Cinema
+----------------------------------------
+1. Create Account
+2. Log in to existing Account
+3. Exit
+----------------------------------------
+Enter your choice: Enter user-name: Choose a password: Account created successfully!
+Welcome to Cinema
+----------------------------------------
+1. Create Account
+2. Log in to existing Account
+3. Exit
+----------------------------------------
+Enter your choice: Enter your user-name: Enter your password: Invalid Username or Password
+Welcome to Cinema
+----------------------------------------
+1. Create Account
+2. Log in to existing Account
+3. Exit
+----------------------------------------
+Enter your choice: Enter your user-name: Enter your password: Hello Winnie :D
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: What movie do you want to watch?
+----------------------------------------
+0. Go Back
+1. Inception
+2. Interstellar
+3. Paddington in Peru
+4. The Dark Knight
+5. The Matrix
+----------------------------------------
+Enter your choice: Enter the amount of seats: Reservation for Inception successful.
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: What movie do you want to watch?
+----------------------------------------
+0. Go Back
+1. Inception
+2. Interstellar
+3. Paddington in Peru
+4. The Dark Knight
+5. The Matrix
+----------------------------------------
+Enter your choice: Enter the amount of seats: Reservation for Paddington in Peru successful.
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: You have reservations for:
+----------------------------------------
+1. Inception (Amount of seats: 1)
+2. Paddington in Peru (Amount of seats: 100)
+----------------------------------------
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: We are offering these movies currently:
+----------------------------------------
+1. Inception
+2. Interstellar
+3. Paddington in Peru
+4. The Dark Knight
+5. The Matrix
+----------------------------------------
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: What movie do you want to watch?
+----------------------------------------
+0. Go Back
+1. Inception
+2. Interstellar
+3. Paddington in Peru
+4. The Dark Knight
+5. The Matrix
+----------------------------------------
+Enter your choice: Enter the amount of seats: There are not enough seats available.
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: What movie do you want to watch?
+----------------------------------------
+0. Go Back
+1. Inception
+2. Interstellar
+3. Paddington in Peru
+4. The Dark Knight
+5. The Matrix
+----------------------------------------
+Enter your choice: Enter the amount of seats: Reservation for Paddington in Peru successful.
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: You have reservations for:
+----------------------------------------
+1. Inception (Amount of seats: 1)
+2. Paddington in Peru (Amount of seats: 120)
+----------------------------------------
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: We are offering these movies currently:
+----------------------------------------
+1. Inception
+2. Interstellar
+3. The Dark Knight
+4. The Matrix
+----------------------------------------
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: Bye bye!
+Welcome to Cinema
+----------------------------------------
+1. Create Account
+2. Log in to existing Account
+3. Exit
+----------------------------------------
+Enter your choice: Enter your user-name: Enter your password: Hello admin :D
+What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: What movie do you want to watch?
+----------------------------------------
+0. Go Back
+1. Inception
+2. Interstellar
+3. The Dark Knight
+4. The Matrix
+----------------------------------------
+Enter your choice: What do you want to do?
+----------------------------------------
+1. List available movies
+2. Reserve a seat
+3. Show reservations
+4. Add a movie
+5. Logout
+----------------------------------------
+Enter your choice: Bye bye!
+Welcome to Cinema
+----------------------------------------
+1. Create Account
+2. Log in to existing Account
+3. Exit
+----------------------------------------
+Enter your choice: Exiting...
