@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # noqa: N999
 from numpy.typing import NDArray
 
 

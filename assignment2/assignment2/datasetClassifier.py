@@ -1,17 +1,17 @@
 import numpy as np
 import pandas as pd
-from datasetPreprocessor import DatasetPreprocessor
-from simpleBaselineClassifier import SimpleBaselineClassifier
 from classifierMetrics import ClassifierMetrics
+from datasetPreProcessor import DatasetPreprocessor
 from numpy.typing import NDArray
+from simpleBaselineClassifier import SimpleBaselineClassifier
 from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import SVC
-from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
 
 
 class DatasetHandler:

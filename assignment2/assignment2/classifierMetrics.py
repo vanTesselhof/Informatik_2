@@ -1,6 +1,7 @@
 import numpy as np
 from numpy.typing import NDArray
-from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+
 
 class ClassifierMetrics:
     """
