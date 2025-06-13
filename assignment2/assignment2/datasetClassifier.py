@@ -14,8 +14,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
 
-
-
 class DatasetHandler:
     """
     A class to handle dataset loading and preprocessing for bike sharing data.
@@ -98,12 +96,11 @@ class ClassifierBase:
         """
         return (
             f"Classifier: {self.__class__.__name__}\n"
-            f"Accuracy: {MetricsForClassifiers.accuracy(y_test, y_pred):.4f}\n"
-            f"Precision: {MetricsForClassifiers.precision(y_test, y_pred):.4f}\n"
-            f"Recall: {MetricsForClassifiers.recall(y_test, y_pred):.4f}\n"
-            f"F1 Score: {MetricsForClassifiers.f1_score(y_test, y_pred):.4f}"
+            f"Accuracy: {ClassifierMetrics.accuracy(y_test, y_pred):.4f}\n"
+            f"Precision: {ClassifierMetrics.precision(y_test, y_pred):.4f}\n"
+            f"Recall: {ClassifierMetrics.recall(y_test, y_pred):.4f}\n"
+            f"F1 Score: {ClassifierMetrics.f1_score(y_test, y_pred):.4f}"
         )
-
 
 
 class GaussianNBClassifier(ClassifierBase):
@@ -339,6 +336,3 @@ class BikeShareExperiment:
             SVMClassifier(kernel="rbf", c=1.0),
             LogisticRegressionClassifier(max_iter=1000, random_state=0),
         ]
-
-
-
