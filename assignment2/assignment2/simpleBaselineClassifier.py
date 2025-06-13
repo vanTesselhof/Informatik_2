@@ -29,6 +29,8 @@ class SimpleBaselineClassifier:
 
     @property
     def X_train(self) -> NDArray[np.int16]:
+        if self._X_train is None:
+            raise ValueError("X_train has not been set. Please call fit() before predict().")
         return self._X_train
 
     @X_train.setter
@@ -37,6 +39,8 @@ class SimpleBaselineClassifier:
 
     @property
     def y_train(self) -> NDArray[np.int16]:
+        if self._y_train is None:
+            raise ValueError("y_train has not been set. Please call fit() before predict().")
         return self._y_train
 
     @y_train.setter
@@ -54,7 +58,7 @@ class SimpleBaselineClassifier:
     def predict(self, X_test: NDArray[np.int16]) -> NDArray[np.int16]:
         if self.strategy == "uniform":
             rng = np.random.RandomState(self.random_state)
-            return rng.randint(np.min(self.y_train), np.max(self.y_train) + 1, size=len(X_test))
+            return rng.randint(np.min(self.y_train), np.max(self.y_train) + 1, size=len(X_test)).astype(np.int16)
 
         elif self.strategy == "constant":
             return np.full(len(X_test), self.constant)

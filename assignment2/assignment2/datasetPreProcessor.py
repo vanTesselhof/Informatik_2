@@ -44,8 +44,7 @@ class DatasetPreprocessor:
         # Convert all columns to numeric where possible
         for col in df.columns:
             if not pd.api.types.is_numeric_dtype(df[col]):
-                df[col] = pd.to_numeric(df[col], errors="ignore")
-
+                df[col] = pd.to_numeric(df[col], errors="coerce")
         # Encode binary and categorical fields
         mappings = {
             "school": {"GP": 0, "MS": 1},
@@ -89,8 +88,10 @@ class DatasetPreprocessor:
         return 5
 
     def to_csv(self, path):
+        if self._data is None:
+            raise ValueError("Data has not been prepared. Please call _extract_and_prepare() first.")
         self._data.to_csv(path, index=False)
-        print(f"✅ Saved cleaned CSV to {path}")
+        print(f"Saved cleaned CSV to {path}")
 
 
 # Example usage
