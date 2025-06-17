@@ -1,17 +1,19 @@
+from typing import Literal
+
 import numpy as np
 import pandas as pd
-from datasetPreprocessor import DatasetPreprocessor
-from simpleBaselineClassifier import SimpleBaselineClassifier
 from classifierMetrics import ClassifierMetrics
+from datasetPreProcessor import DatasetPreprocessor
 from numpy.typing import NDArray
+from simpleBaselineClassifier import SimpleBaselineClassifier
 from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import SVC
-from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
 
 
 class DatasetHandler:
@@ -225,7 +227,8 @@ class RandomForestClassifierModel(ClassifierBase):
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
-        rf = RandomForestClassifier(n_estimators=self.n_estimators, random_state=self.random_state)
+        rf = RandomForestClassifier(
+            n_estimators=self.n_estimators, random_state=self.random_state)
         rf.fit(self.X_train, self.y_train)
         self.feature_importances = rf.feature_importances_
         return rf.predict(X_test).astype(np.int16)
@@ -240,7 +243,7 @@ class SVMClassifier(ClassifierBase):
         C (float): Regularization parameter.
     """
 
-    def __init__(self, kernel: str = "linear", c: float = 1.0) -> None:
+    def __init__(self, kernel: Literal["linear", "rbf", "poly", "sigmoid"] = "linear", c: float = 1.0) -> None:
         """
         Initialize the SVMClassifier.
 
@@ -249,7 +252,7 @@ class SVMClassifier(ClassifierBase):
             c (float): Regularization parameter (default is 1.0).
         """
         super().__init__()
-        self.kernel = kernel
+        self.kernel: Literal['linear'] | Literal['rbf'] | Literal['poly'] | Literal['sigmoid'] = kernel
         self.c = c
         self.name = "SVM"
 
@@ -300,7 +303,8 @@ class LogisticRegressionClassifier(ClassifierBase):
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
-        lr = LogisticRegression(max_iter=self.max_iter, random_state=self.random_state)
+        lr = LogisticRegression(max_iter=self.max_iter,
+                                random_state=self.random_state)
         lr.fit(self.X_train, self.y_train)
         return lr.predict(X_test).astype(np.int16)
 

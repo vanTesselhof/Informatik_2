@@ -1,6 +1,9 @@
+from typing import Literal
+
 import numpy as np
 from numpy.typing import NDArray
-from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+
 
 
 class ClassifierMetrics:
@@ -23,7 +26,8 @@ class ClassifierMetrics:
         return float(np.mean(y_true == y_pred))
 
     @staticmethod
-    def precision(y_true: NDArray[np.int16], y_pred: NDArray[np.int16], average: str = "macro") -> float:
+    def precision(y_true: NDArray[np.int16], y_pred: NDArray[np.int16],
+                  average: Literal['micro', 'macro', 'samples', 'weighted'] = "macro") -> float:
         """
         Compute the precision score.
 
@@ -40,7 +44,8 @@ class ClassifierMetrics:
         return float(precision_score(y_true, y_pred, average=average, zero_division=0))
 
     @staticmethod
-    def recall(y_true: NDArray[np.int16], y_pred: NDArray[np.int16], average: str = "macro") -> float:
+    def recall(y_true: NDArray[np.int16], y_pred: NDArray[np.int16],
+               average: Literal['micro', 'macro', 'samples', 'weighted'] = "macro") -> float:
         """
         Compute the recall score.
 
@@ -57,7 +62,8 @@ class ClassifierMetrics:
         return float(recall_score(y_true, y_pred, average=average, zero_division=0))
 
     @staticmethod
-    def f1_score(y_true: NDArray[np.int16], y_pred: NDArray[np.int16], average: str = "macro") -> float:
+    def f1_score(y_true: NDArray[np.int16], y_pred: NDArray[np.int16],
+                 average: Literal['micro', 'macro', 'samples', 'weighted'] = "macro") -> float:
         """
         Compute the F1 score.
 
