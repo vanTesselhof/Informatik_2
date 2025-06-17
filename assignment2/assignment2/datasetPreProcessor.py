@@ -89,10 +89,9 @@ class DatasetPreprocessor:
 
     def to_csv(self, path):
         self._data.to_csv(path, index=False)
-        print(f"✅ Saved cleaned CSV to {path}")
+        print(f"Saved cleaned CSV to {path}")
 
 
-# Example usage
 if __name__ == "__main__":
     processor = DatasetPreprocessor("student+performance.zip")
     processor.to_csv("cleaned_student_dataset.csv")

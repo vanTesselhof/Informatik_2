@@ -2,6 +2,7 @@ import numpy as np
 from numpy.typing import NDArray
 from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_score
 
+
 class ClassifierMetrics:
     """
     A class containing static methods to compute various classification metrics.
@@ -35,6 +36,7 @@ class ClassifierMetrics:
             float: Precision score.
         """
         from sklearn.metrics import precision_score
+
         return float(precision_score(y_true, y_pred, average=average, zero_division=0))
 
     @staticmethod
@@ -51,6 +53,7 @@ class ClassifierMetrics:
             float: Recall score.
         """
         from sklearn.metrics import recall_score
+
         return float(recall_score(y_true, y_pred, average=average, zero_division=0))
 
     @staticmethod
@@ -67,4 +70,5 @@ class ClassifierMetrics:
             float: F1 score.
         """
         from sklearn.metrics import f1_score
+
         return float(f1_score(y_true, y_pred, average=average, zero_division=0))
