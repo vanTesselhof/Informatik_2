@@ -2,19 +2,18 @@ from typing import Literal
 
 import numpy as np
 import pandas as pd
-from classifierMetrics import ClassifierMetrics
-from datasetPreProcessor import DatasetPreprocessor
 from numpy.typing import NDArray
-from simpleBaselineClassifier import SimpleBaselineClassifier
+
 from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
+from assignment2.classifierMetrics import ClassifierMetrics
+from assignment2.simpleBaselineClassifier import SimpleBaselineClassifier
 
 class DatasetHandler:
     """
@@ -24,8 +23,8 @@ class DatasetHandler:
         dataset (pd.DataFrame): The loaded dataset.
         X (pd.DataFrame): Features from the dataset.
         y (pd.Series): Labels from the dataset.
-        X_train (pd.DataFrame): Training features after the train-test split.
-        X_test (pd.DataFrame): Testing features after the train-test split.
+        x_train (pd.DataFrame): Training features after the train-test split.
+        x_test (pd.DataFrame): Testing features after the train-test split.
         y_train (pd.Series): Training labels after the train-test split.
         y_test (pd.Series): Testing labels after the train-test split.
     """
@@ -41,7 +40,7 @@ class DatasetHandler:
         self.X = self.dataset.iloc[:, :-1]
         self.y = self.dataset.iloc[:, -1]
 
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
+        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(
             self.X, self.y, test_size=0.2, random_state=0
         )
 
@@ -62,27 +61,27 @@ class ClassifierBase:
         self.y_pred = None
         self.name = "ClassifierBase"
 
-    def predict(self, X_test: NDArray[np.int16]) -> NDArray[np.int16]:  # noqa: N803
+    def predict(self, x_test: NDArray[np.int16]) -> NDArray[np.int16]:
         """
         Make predictions using the classifier.
 
         Args:
-            X_test (NDArray[np.int16]): Testing features.
+            x_test (NDArray[np.int16]): Testing features.
 
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
         raise NotImplementedError("Subclasses should implement this method")
 
-    def fit(self, X_train: NDArray[np.int16], y_train: NDArray[np.int16]) -> None:  # noqa: N803
+    def fit(self, x_train: NDArray[np.int16], y_train: NDArray[np.int16]) -> None:
         """
         Fit the classifier to the training data.
 
         Args:
-            X_train (NDArray[np.int16]): Training features.
+            x_train (NDArray[np.int16]): Training features.
             y_train (NDArray[np.int16]): Training labels.
         """
-        self.X_train = X_train
+        self.x_train = x_train
         self.y_train = y_train
 
     def metrics(self, y_test: NDArray[np.int16], y_pred: NDArray[np.int16]) -> str:
@@ -117,19 +116,19 @@ class GaussianNBClassifier(ClassifierBase):
         super().__init__()
         self.name = "GaussianNB"
 
-    def predict(self, X_test: NDArray[np.int16]) -> NDArray[np.int16]:  # noqa: N803
+    def predict(self, x_test: NDArray[np.int16]) -> NDArray[np.int16]:
         """
         Make predictions using the Gaussian Naive Bayes classifier.
 
         Args:
-            X_test (NDArray[np.int16]): Testing features.
+            x_test (NDArray[np.int16]): Testing features.
 
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
         gnb = GaussianNB()
-        gnb.fit(self.X_train, self.y_train)
-        return gnb.predict(X_test)
+        gnb.fit(self.x_train, self.y_train)
+        return gnb.predict(x_test)
 
 
 class DecisionTreeClassifier(ClassifierBase):
@@ -144,19 +143,19 @@ class DecisionTreeClassifier(ClassifierBase):
         super().__init__()
         self.name = "DecisionTree"
 
-    def predict(self, X_test: NDArray[np.int16]) -> NDArray[np.int16]:  # noqa: N803
+    def predict(self, x_test: NDArray[np.int16]) -> NDArray[np.int16]:
         """
         Make predictions using the Decision Tree classifier.
 
         Args:
-            X_test (NDArray[np.int16]): Testing features.
+            x_test (NDArray[np.int16]): Testing features.
 
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
         clf = tree.DecisionTreeClassifier(random_state=0)
-        clf.fit(self.X_train, self.y_train)
-        return clf.predict(X_test).astype(np.int16)
+        clf.fit(self.x_train, self.y_train)
+        return clf.predict(x_test).astype(np.int16)
 
 
 class KNNClassifier(ClassifierBase):
@@ -178,19 +177,19 @@ class KNNClassifier(ClassifierBase):
         self.k = k
         self.name = "KNN"
 
-    def predict(self, X_test: NDArray[np.int16]) -> NDArray[np.int16]:  # noqa: N803
+    def predict(self, x_test: NDArray[np.int16]) -> NDArray[np.int16]:
         """
         Make predictions using the k-Nearest Neighbors classifier.
 
         Args:
-            X_test (NDArray[np.int16]): Testing features.
+            x_test (NDArray[np.int16]): Testing features.
 
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
         knn = KNeighborsClassifier(n_neighbors=self.k)
-        knn.fit(self.X_train, self.y_train)
-        return knn.predict(X_test).astype(np.int16)
+        knn.fit(self.x_train, self.y_train)
+        return knn.predict(x_test).astype(np.int16)
 
 
 class RandomForestClassifierModel(ClassifierBase):
@@ -217,21 +216,21 @@ class RandomForestClassifierModel(ClassifierBase):
         self.random_state = random_state
         self.feature_importances = None
 
-    def predict(self, X_test: NDArray[np.int16]) -> NDArray[np.int16]:  # noqa: N803
+    def predict(self, x_test: NDArray[np.int16]) -> NDArray[np.int16]:
         """
         Make predictions using the Random Forest classifier.
 
         Args:
-            X_test (NDArray[np.int16]): Testing features.
+            x_test (NDArray[np.int16]): Testing features.
 
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
         rf = RandomForestClassifier(
             n_estimators=self.n_estimators, random_state=self.random_state)
-        rf.fit(self.X_train, self.y_train)
+        rf.fit(self.x_train, self.y_train)
         self.feature_importances = rf.feature_importances_
-        return rf.predict(X_test).astype(np.int16)
+        return rf.predict(x_test).astype(np.int16)
 
 
 class SVMClassifier(ClassifierBase):
@@ -256,19 +255,19 @@ class SVMClassifier(ClassifierBase):
         self.c = c
         self.name = "SVM"
 
-    def predict(self, X_test: NDArray[np.int16]) -> NDArray[np.int16]:  # noqa: N803
+    def predict(self, x_test: NDArray[np.int16]) -> NDArray[np.int16]:
         """
         Make predictions using the Support Vector Machine classifier.
 
         Args:
-            X_test (NDArray[np.int16]): Testing features.
+            x_test (NDArray[np.int16]): Testing features.
 
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
         svm = SVC(kernel=self.kernel, C=self.c)
-        svm.fit(self.X_train, self.y_train)
-        return svm.predict(X_test).astype(np.int16)
+        svm.fit(self.x_train, self.y_train)
+        return svm.predict(x_test).astype(np.int16)
 
 
 class LogisticRegressionClassifier(ClassifierBase):
@@ -293,20 +292,20 @@ class LogisticRegressionClassifier(ClassifierBase):
         self.random_state = random_state
         self.name = "LogisticRegression"
 
-    def predict(self, X_test: NDArray[np.int16]) -> NDArray[np.int16]:  # noqa: N803
+    def predict(self, x_test: NDArray[np.int16]) -> NDArray[np.int16]:
         """
         Make predictions using the Logistic Regression classifier.
 
         Args:
-            X_test (NDArray[np.int16]): Testing features.
+            x_test (NDArray[np.int16]): Testing features.
 
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
         lr = LogisticRegression(max_iter=self.max_iter,
                                 random_state=self.random_state)
-        lr.fit(self.X_train, self.y_train)
-        return lr.predict(X_test).astype(np.int16)
+        lr.fit(self.x_train, self.y_train)
+        return lr.predict(x_test).astype(np.int16)
 
 
 class BikeShareExperiment:

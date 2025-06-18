@@ -1,4 +1,4 @@
-import numpy as np  # noqa: N999
+import numpy as np
 from numpy.typing import NDArray
 
 
@@ -16,7 +16,7 @@ class SimpleBaselineClassifier:
         self.strategy = strategy
         self.random_state = random_state
         self.constant = constant
-        self._X_train = None
+        self._x_train = None
         self._y_train = None
 
     def __repr__(self):
@@ -28,14 +28,14 @@ class SimpleBaselineClassifier:
         )
 
     @property
-    def X_train(self) -> NDArray[np.int16]:
-        if self._X_train is None:
-            raise ValueError("X_train has not been set. Please call fit() before predict().")
-        return self._X_train
+    def x_train(self) -> NDArray[np.int16]:
+        if self._x_train is None:
+            raise ValueError("x_train has not been set. Please call fit() before predict().")
+        return self._x_train
 
-    @X_train.setter
-    def X_train(self, X_train: NDArray[np.int16]):
-        self._X_train = X_train
+    @x_train.setter
+    def x_train(self, x_train: NDArray[np.int16]):
+        self._x_train = x_train
 
     @property
     def y_train(self) -> NDArray[np.int16]:
@@ -47,26 +47,25 @@ class SimpleBaselineClassifier:
     def y_train(self, y_train: NDArray[np.int16]):
         self._y_train = y_train
 
-    def fit(self, X_train: NDArray[np.int16], y_train: NDArray[np.int16]):
-        self.X_train = X_train
+    def fit(self, x_train: NDArray[np.int16], y_train: NDArray[np.int16]):
+        self.x_train = x_train
         self.y_train = y_train
 
         if self.strategy == "constant":
             if self.constant not in np.unique(y_train):
                 raise ValueError(f"Constant value '{self.constant}' is not in the training labels.")
 
-    def predict(self, X_test: NDArray[np.int16]) -> NDArray[np.int16]:
+    def predict(self, x_test: NDArray[np.int16]) -> NDArray[np.int16]:
         if self.strategy == "uniform":
             rng = np.random.RandomState(self.random_state)
-            return rng.randint(np.min(self.y_train), np.max(self.y_train) + 1, size=len(X_test)).astype(np.int16)
+            return rng.randint(np.min(self.y_train), np.max(self.y_train) + 1, size=len(x_test)).astype(np.int16)
 
-        elif self.strategy == "constant":
-            return np.full(len(X_test), self.constant)
+        if self.strategy == "constant":
+            return np.full(len(x_test), self.constant)
 
-        elif self.strategy == "most_frequent":
+        if self.strategy == "most_frequent":
             values, counts = np.unique(self.y_train, return_counts=True)
             most_frequent = values[np.argmax(counts)]
-            return np.full(len(X_test), most_frequent)
+            return np.full(len(x_test), most_frequent)
 
-        else:
-            raise ValueError(f"Unknown strategy: {self.strategy}")
+        raise ValueError(f"Unknown strategy: {self.strategy}")
