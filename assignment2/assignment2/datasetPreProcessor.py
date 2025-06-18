@@ -1,6 +1,7 @@
 import os
 import shutil
 import zipfile
+
 import numpy as np
 import pandas as pd
 
@@ -91,7 +92,7 @@ class DatasetPreprocessor:
         }
         for col, mapping in mappings.items():
             if col in df.columns:
-                df[col].replace(mapping, inplace=True)
+                df[col] = df[col].replace(mapping)
 
         df.replace({"yes": 1, "no": 0}, inplace=True)
 
@@ -145,6 +146,20 @@ class DatasetPreprocessor:
             raise ValueError("Data has not been prepared. Please call _extract_and_prepare() first.")
         self._data.to_csv(path, index=False)
         print(f"Saved cleaned CSV to {path}")
+
+    @property
+    def data(self) -> pd.DataFrame:
+        """
+        Returns the cleaned and preprocessed dataset.
+
+        Returns
+        -------
+        pd.DataFrame
+            The cleaned dataset
+        """
+        if self._data is None:
+            raise ValueError("Data has not been prepared. Please call _extract_and_prepare() first.")
+        return self._data
 
 
 if __name__ == "__main__":
