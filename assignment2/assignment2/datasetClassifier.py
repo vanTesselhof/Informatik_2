@@ -12,8 +12,8 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 
-from assignment2.classifierMetrics import ClassifierMetrics
-from assignment2.simpleBaselineClassifier import SimpleBaselineClassifier
+from classifierMetrics import ClassifierMetrics
+from simpleBaselineClassifier import SimpleBaselineClassifier
 
 class DatasetHandler:
     """
@@ -308,7 +308,7 @@ class LogisticRegressionClassifier(ClassifierBase):
         return lr.predict(x_test).astype(np.int16)
 
 
-class BikeShareExperiment:
+class StudentPerformanceExperiment:
     """
     A class to run machine learning experiments on the bike sharing dataset.
     """
