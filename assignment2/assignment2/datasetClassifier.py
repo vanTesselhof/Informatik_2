@@ -322,7 +322,7 @@ class LogisticRegressionClassifier(ClassifierBase):
 
 class StudentPerformanceExperiment:
     """
-    A class to run machine learning experiments on the bike sharing dataset.
+    A class to run machine learning experiments on the student performance dataset.
     """
 
     def __init__(self, dataset_path: str) -> None:
