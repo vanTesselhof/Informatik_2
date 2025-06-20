@@ -6,7 +6,7 @@
 # Author 3:      Maria Mikic
 # MatNr 3:       12234490
 # File:          datasetClassifier.py
-# Description: A class to handle dataset loading and preprocessing for bike sharing data.
+# Description: A class to handle dataset loading and preprocessing for student sharing data.
 # Comments:    --
 ################################################################################
 
@@ -31,7 +31,7 @@ from assignment2.simpleBaselineClassifier import SimpleBaselineClassifier
 
 class DatasetHandler:
     """
-    A class to handle dataset loading and preprocessing for bike sharing data.
+    A class to handle dataset loading and preprocessing for student sharing data.
 
     Attributes:
         dataset (pd.DataFrame): The loaded dataset.
