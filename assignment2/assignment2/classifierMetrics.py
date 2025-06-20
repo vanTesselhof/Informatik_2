@@ -1,3 +1,17 @@
+################################################################################
+# Author 1:      Jakob Marktl
+# MatNr 1:       12335939
+# Author 2:      Firstname Lastname
+# MatNr 2:       01234567
+# Author 3:      Firstname Lastname
+# MatNr 3:       01234567
+# File:          classifierMetrics.py
+# Description: ... short description of the file ...
+# Comments:    ... comments for the tutors ...
+#              ... can be multiline ...
+################################################################################
+
+
 from typing import Literal
 
 import numpy as np
@@ -25,8 +39,11 @@ class ClassifierMetrics:
         return float(np.mean(y_true == y_pred))
 
     @staticmethod
-    def precision(y_true: NDArray[np.int16], y_pred: NDArray[np.int16],
-                  average: Literal['micro', 'macro', 'samples', 'weighted'] = "macro") -> float:
+    def precision(
+        y_true: NDArray[np.int16],
+        y_pred: NDArray[np.int16],
+        average: Literal["micro", "macro", "samples", "weighted"] = "macro",
+    ) -> float:
         """
         Compute the precision score.
 
@@ -41,8 +58,11 @@ class ClassifierMetrics:
         return float(precision_score(y_true, y_pred, average=average, zero_division=0))
 
     @staticmethod
-    def recall(y_true: NDArray[np.int16], y_pred: NDArray[np.int16],
-               average: Literal['micro', 'macro', 'samples', 'weighted'] = "macro") -> float:
+    def recall(
+        y_true: NDArray[np.int16],
+        y_pred: NDArray[np.int16],
+        average: Literal["micro", "macro", "samples", "weighted"] = "macro",
+    ) -> float:
         """
         Compute the recall score.
 
@@ -57,8 +77,11 @@ class ClassifierMetrics:
         return float(recall_score(y_true, y_pred, average=average, zero_division=0))
 
     @staticmethod
-    def f1_score(y_true: NDArray[np.int16], y_pred: NDArray[np.int16],
-                 average: Literal['micro', 'macro', 'samples', 'weighted'] = "macro") -> float:
+    def f1_score(
+        y_true: NDArray[np.int16],
+        y_pred: NDArray[np.int16],
+        average: Literal["micro", "macro", "samples", "weighted"] = "macro",
+    ) -> float:
         """
         Compute the F1 score.
 

@@ -1,3 +1,17 @@
+################################################################################
+# Author 1:      Jakob Marktl
+# MatNr 1:       12335939
+# Author 2:      Firstname Lastname
+# MatNr 2:       01234567
+# Author 3:      Firstname Lastname
+# MatNr 3:       01234567
+# File:          datasetClassifier.py
+# Description: ... short description of the file ...
+# Comments:    ... comments for the tutors ...
+#              ... can be multiline ...
+################################################################################
+
+
 from typing import Literal
 
 import numpy as np
@@ -14,6 +28,7 @@ from sklearn.svm import SVC
 
 from classifierMetrics import ClassifierMetrics
 from simpleBaselineClassifier import SimpleBaselineClassifier
+
 
 class DatasetHandler:
     """
@@ -226,8 +241,7 @@ class RandomForestClassifierModel(ClassifierBase):
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
-        rf = RandomForestClassifier(
-            n_estimators=self.n_estimators, random_state=self.random_state)
+        rf = RandomForestClassifier(n_estimators=self.n_estimators, random_state=self.random_state)
         rf.fit(self.x_train, self.y_train)
         self.feature_importances = rf.feature_importances_
         return rf.predict(x_test).astype(np.int16)
@@ -251,7 +265,7 @@ class SVMClassifier(ClassifierBase):
             c (float): Regularization parameter (default is 1.0).
         """
         super().__init__()
-        self.kernel: Literal['linear'] | Literal['rbf'] | Literal['poly'] | Literal['sigmoid'] = kernel
+        self.kernel: Literal["linear"] | Literal["rbf"] | Literal["poly"] | Literal["sigmoid"] = kernel
         self.c = c
         self.name = "SVM"
 
@@ -302,8 +316,7 @@ class LogisticRegressionClassifier(ClassifierBase):
         Returns:
             NDArray[np.int16]: Predicted labels.
         """
-        lr = LogisticRegression(max_iter=self.max_iter,
-                                random_state=self.random_state)
+        lr = LogisticRegression(max_iter=self.max_iter, random_state=self.random_state)
         lr.fit(self.x_train, self.y_train)
         return lr.predict(x_test).astype(np.int16)
 

@@ -1,3 +1,16 @@
+################################################################################
+# Author 1:      Jakob Marktl
+# MatNr 1:       12335939
+# Author 2:      Firstname Lastname
+# MatNr 2:       01234567
+# Author 3:      Firstname Lastname
+# MatNr 3:       01234567
+# File:          datasetPreProcessor.py
+# Description:  A class to preprocess a zipped dataset containing student performance CSV files.
+# Comments:    --
+################################################################################
+
+
 import os
 import shutil
 import zipfile
@@ -113,4 +126,4 @@ class DatasetPreprocessor:
 
 if __name__ == "__main__":
     processor = DatasetPreprocessor("student+performance.zip")
-    processor.to_csv("cleaned_dataset.csv")
+    processor.to_csv("dataset.csv")

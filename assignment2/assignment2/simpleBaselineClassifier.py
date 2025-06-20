@@ -1,3 +1,17 @@
+################################################################################
+# Author 1:      Jakob Marktl
+# MatNr 1:       12335939
+# Author 2:      Firstname Lastname
+# MatNr 2:       01234567
+# Author 3:      Firstname Lastname
+# MatNr 3:       01234567
+# File:          simpleBaselineClassifier.py
+# Description:   A simple baseline classifier that makes predictions based on a specified strategy.
+# Comments:    ... comments for the tutors ...
+#              ... can be multiline ...
+################################################################################
+
+
 import numpy as np
 from numpy.typing import NDArray
 

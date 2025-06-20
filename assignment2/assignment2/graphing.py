@@ -1,3 +1,17 @@
+################################################################################
+# Author 1:      Jakob Marktl
+# MatNr 1:       12335939
+# Author 2:      Firstname Lastname
+# MatNr 2:       01234567
+# Author 3:      Firstname Lastname
+# MatNr 3:       01234567
+# File:          graphing.py
+# Description: ... short description of the file ...
+# Comments:    ... comments for the tutors ...
+#              ... can be multiline ...
+################################################################################
+
+
 import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
