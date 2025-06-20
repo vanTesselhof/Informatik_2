@@ -5,7 +5,7 @@ from numpy.typing import NDArray
 from sklearn.metrics import confusion_matrix
 import pandas as pd
 
-from assignment2.datasetClassifier import DatasetHandler
+from datasetClassifier import DatasetHandler
 
 from typing import cast
 
