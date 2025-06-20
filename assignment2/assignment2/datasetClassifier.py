@@ -6,9 +6,8 @@
 # Author 3:      Maria Mikic
 # MatNr 3:       12234490
 # File:          datasetClassifier.py
-# Description: ... short description of the file ...
-# Comments:    ... comments for the tutors ...
-#              ... can be multiline ...
+# Description: A class to handle dataset loading and preprocessing for bike sharing data.
+# Comments:    --
 ################################################################################
 
 

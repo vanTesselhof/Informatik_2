@@ -6,9 +6,8 @@
 # Author 3:      Maria Mikic
 # MatNr 3:       12234490
 # File:          graphing.py
-# Description: ... short description of the file ...
-# Comments:    ... comments for the tutors ...
-#              ... can be multiline ...
+# Description:   Graphs
+# Comments:    --
 ################################################################################
 
 
