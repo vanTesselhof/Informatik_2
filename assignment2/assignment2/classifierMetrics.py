@@ -3,8 +3,8 @@
 # MatNr 1:       12335939
 # Author 2:      Christoph Nagy
 # MatNr 2:       12331569
-# Author 3:      Firstname Lastname
-# MatNr 3:       01234567
+# Author 3:      Maria Mikic
+# MatNr 3:       12234490
 # File:          classifierMetrics.py
 # Description: ... short description of the file ...
 # Comments:    ... comments for the tutors ...
