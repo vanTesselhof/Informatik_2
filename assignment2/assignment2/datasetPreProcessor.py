@@ -1,8 +1,8 @@
 ################################################################################
 # Author 1:      Jakob Marktl
 # MatNr 1:       12335939
-# Author 2:      Firstname Lastname
-# MatNr 2:       01234567
+# Author 2:      Christoph Nagy
+# MatNr 2:       12331569
 # Author 3:      Firstname Lastname
 # MatNr 3:       01234567
 # File:          datasetPreProcessor.py
